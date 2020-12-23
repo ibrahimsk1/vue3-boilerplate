@@ -1,4 +1,4 @@
-import { isAuthActive } from '../constants/config'
+import { isAuthActive } from '../constans/config'
 export default (to, from, next) => {
   if (isAuthActive){
     next()
@@ -8,7 +8,7 @@ export default (to, from, next) => {
       next()
     } else {
       localStorage.removeItem('user')
-      next('/user/login')
+      next('Auth/login')
     }
   }
 }

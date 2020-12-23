@@ -1,14 +1,13 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import { createStore } from "vuex" 
+import i18n from './modules/i18n'
+import Auth from './modules/Auth'
 
 
-import i18nModule from './modules/i18nModule'
-
-Vue.use(Vuex)
-
-export default new Vuex.Store({
-
+const store = createStore({
     modules: {
-        i18nModule,
+        i18n,
+        Auth,
     }
 });
+
+export default store;
