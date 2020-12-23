@@ -1,12 +1,9 @@
-// import router from '../router';
-
+import ApiService from './ApiService'
 
 const ENDPOINTS = {
   LOGIN: '/auth/login',
   SIGN_UP: '/auth/register',
   LOGOUT: '/auth/logout',
-  FACEBOOK: '/auth/social/facebook',
-  GOOGLE: '/auth/social/google',
   FORGOT_PASSWORD: '/user/forgot-password',
   RESET_PASSWORD: '/user/reset-password'
 };
@@ -38,28 +35,31 @@ class AuthService extends ApiService {
 
   createSession = user => {
     localStorage.setItem('user', JSON.stringify(user));
-    this.setAuthorizationHeader();
+    //this.setAuthorizationHeader();
 
   };
 
-  destroySession =  () => {
+  destroySession = () => {
     localStorage.clear();
     this.api.removeHeaders(['Authorization']);
-    
+
   };
 
   login = async loginData => {
-    const { data } = await this.apiClient.post(ENDPOINTS.LOGIN, loginData);
-    this.createSession(data);
-    return data;
+    // const { data } = await this.apiClient.post(ENDPOINTS.LOGIN, loginData);
+    this.createSession(loginData);
+    return loginData;
   };
 
-  
+
 
   logout = async () => {
-    const { data } = await this.apiClient.post(ENDPOINTS.LOGOUT);
+    const {data} = await this.apiClient.post(ENDPOINTS.LOGOUT);
     this.destroySession();
-    return { ok: true, data };
+    return {
+      ok: true,
+      data
+    };
   };
 
   forgotPassword = data => this.apiClient.post(ENDPOINTS.FORGOT_PASSWORD, data);
@@ -68,8 +68,14 @@ class AuthService extends ApiService {
 
   signup = async signupData => {
     await this.apiClient.post(ENDPOINTS.SIGN_UP, signupData);
-    const { email, password } = signupData;
-    return this.login({ email, password });
+    const {
+      email,
+      password
+    } = signupData;
+    return this.login({
+      email,
+      password
+    });
   };
 
   getToken = () => {
@@ -85,7 +91,10 @@ class AuthService extends ApiService {
   updateUserInStorage = property => {
     const user = localStorage.getItem('user');
     let jsonUser = JSON.parse(user);
-    jsonUser = { ...jsonUser, ...property };
+    jsonUser = {
+      ...jsonUser,
+      ...property
+    };
     localStorage.setItem('user', JSON.stringify(jsonUser));
   };
 
@@ -94,4 +103,3 @@ class AuthService extends ApiService {
 const authService = new AuthService();
 
 export default authService;
-

@@ -1,5 +1,10 @@
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
 var _vue = require("vue");
 
 var _App = _interopRequireDefault(require("./App.vue"));
@@ -17,3 +22,5 @@ app.use(_router["default"]);
 app.use(_index["default"]);
 app.use(_index2["default"]);
 app.mount('#app');
+var _default = app;
+exports["default"] = _default;

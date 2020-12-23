@@ -1,7 +1,8 @@
 import AuthService from "../../services/AuthService"
 
 const state = {
-    user: {}
+    user: {},
+    error:""
 }
 
 const getters = {
@@ -17,14 +18,12 @@ const mutations = {
 }
 
 const actions = {
-    login({commit}, payload) {
-        AuthService.login(payload).then(res => {
-            var result = JSON.parse(res.data);
-            commit("setUser", result);
-        }).catch(error => console.log(error))
+    async loginUser({commit}, payload) {
+        const result = await AuthService.login(payload).catch(error => console.log(error))
+        commit("setUser", result);
     }
 
-    
+
 }
 
 export default {

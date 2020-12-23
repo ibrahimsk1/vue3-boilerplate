@@ -1,5 +1,5 @@
 import axios from 'axios';
-import config from '../config';
+import {API_BASE_URL} from '../constans/config';
 
 
 class HttpService {
@@ -34,7 +34,6 @@ class HttpService {
 
       switch (status) {
       case 401:
-        AsyncStorage.clear();
         this.unauthorizedCallback();
         break;
       default:
@@ -53,7 +52,7 @@ class HttpService {
 }
 
 const options = {
-  baseURL: config.API_BASE_URL
+  baseURL: API_BASE_URL
 };
 
 const httpService = new HttpService(options);

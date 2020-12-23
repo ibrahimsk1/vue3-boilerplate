@@ -5,14 +5,14 @@ import AuthRequired from "./utils/AuthRequired";
 const routes = [
     {
         path: "/",
-        component: () => import("./Views/Home"),
+        component: () => import("./Views/Auth"),
         redirect: "/Home",
-        beforeEnter: AuthRequired,
     },
     {
         path: "/Home",
         component: () => import("./Views/Home"),
-        redirect: "/Home/Home",
+        beforeEnter: AuthRequired,
+        redirect: "/Home/Home",     
         children: [
             {
               path: "Home",
@@ -23,10 +23,10 @@ const routes = [
     {
         path: "/Auth",
         component: () => import("./Views/Auth"),
-        redirect: "/Views/Auth",
+        redirect: "/Auth/Login",
         children: [
           {
-            path: "Auth",
+            path: "Login",
             component: () =>
               import("./Views/Auth/Login")
           }

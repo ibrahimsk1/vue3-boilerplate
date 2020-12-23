@@ -21,11 +21,10 @@ var routes = [{
   path: "/",
   component: function component() {
     return Promise.resolve().then(function () {
-      return _interopRequireWildcard(require("./Views/Home"));
+      return _interopRequireWildcard(require("./Views/Auth"));
     });
   },
-  redirect: "/Home",
-  beforeEnter: _AuthRequired["default"]
+  redirect: "/Home"
 }, {
   path: "/Home",
   component: function component() {
@@ -33,6 +32,7 @@ var routes = [{
       return _interopRequireWildcard(require("./Views/Home"));
     });
   },
+  beforeEnter: _AuthRequired["default"],
   redirect: "/Home/Home",
   children: [{
     path: "Home",
@@ -49,9 +49,9 @@ var routes = [{
       return _interopRequireWildcard(require("./Views/Auth"));
     });
   },
-  redirect: "/Views/Auth",
+  redirect: "/Auth/Login",
   children: [{
-    path: "Auth",
+    path: "Login",
     component: function component() {
       return Promise.resolve().then(function () {
         return _interopRequireWildcard(require("./Views/Auth/Login"));

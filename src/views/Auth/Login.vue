@@ -5,7 +5,8 @@
       <div class="content">
         <label for="email">E-mail</label>
         <input id="email" type="text" v-model="email" />
-
+      </div>
+      <div class="content">
         <label for="password">password</label>
         <input
           id="password"
@@ -14,6 +15,7 @@
           @keyup.enter="makeLogin"
         />
       </div>
+
       <div class="buttons">
         <button @click="makeLogin">login</button>
       </div>
@@ -26,7 +28,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations, mapActions } from "vuex";
+import { mapActions } from "vuex";
 export default {
   name: 'Login',
   data() {
@@ -37,9 +39,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions({
-      "login": login
-    }),
+    ...mapActions(["loginUser"]),
     validateEmail(email) {
       const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(String(email).toLowerCase());
@@ -49,9 +49,9 @@ export default {
         this.error = "Email is not valid"
         return;
       }
-      await login({ email: this.email, password: this.password })
+      await this.loginUser({ email: this.email, password: this.password })
       this.error = ''
-      await this.$router.push('Home')
+      await this.$router.push('../Home')
     }
   }
 }
