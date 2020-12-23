@@ -1,6 +1,6 @@
 # Real World Vue.js 3 Boilerplate
 This project based on real world practice.
-"axios": "^0.21.0", ,"core-js": "^3.6.5", "vue": "^3.0.0", , "vue-i18n": "^9.0.0-beta.15", ,"vue-router": "^4.0.1", "vuex": "^4.0.0-rc.2"
+"axios": 0.21.0, ,"core-js": 3.6.5, "vue": 3.0.0, , vue-i18n: 9.0.0-beta.15, ,"vue-router": 4.0.1, "vuex": 4.0.0-rc.2
 
 ## Features
 - Global Error Handling
@@ -31,7 +31,7 @@ This project based on real world practice.
 
 
 ### `src`
-Source =)
+source folder
 
 ### `assets`
 Images/Fonts/Other media stuff.
