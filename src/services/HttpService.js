@@ -56,4 +56,4 @@ const options = {
 };
 
 const httpService = new HttpService(options);
-export default httpService;
+export default httpService; 

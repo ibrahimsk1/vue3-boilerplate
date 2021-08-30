@@ -2,22 +2,7 @@
     "general": {
         "copyright": "İbrahim Şık 2020"
     },
-    "user": {
-        "login-title": "Login",
-        "register": "Register",
-        "forgot-password": "Forgot Password",
-        "email": "E-mail",
-        "password": "Password",
-        "password-again": "Password Again",
-        "forgot-password-question": "Forget password?",
-        "fullname": "Full Name",
-        "login-button": "LOGIN",
-        "register-button": "REGISTER",
-        "reset-password-button": "RESET",
-        "buy": "BUY",
-        "username": "Username",
-        "companyname": "Şirket Adı",
-        "telephone": "Telefon Numarası",
-        "lastname": "Soyadı"
+    "pages": {
+        "go-back-home": "Anasayfaya Geri Dön"
     }
 }

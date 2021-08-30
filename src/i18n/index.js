@@ -1,4 +1,4 @@
-import { createI18n } from "vue-i18n";
+import { createI18n } from 'vue-i18n/index'
 import en from './locales/en.json'
 import tr from './locales/tr.json'
 import { defaultLocale } from '../constans/config';
